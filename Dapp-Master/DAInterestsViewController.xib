@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DAInterestsViewController">
+            <connections>
+                <outlet property="entertainmentButtonOutlet" destination="Cff-00-Kom" id="N4t-cC-n7Z"/>
+                <outlet property="foodButtonOutlet" destination="TTg-9f-kag" id="qZy-3a-cMt"/>
+                <outlet property="gamingButtonOutlet" destination="6rx-Vc-XIu" id="bNJ-Gt-rPj"/>
+                <outlet property="musicButtonOutlet" destination="a9m-4W-JYH" id="Ttb-2N-qxO"/>
+                <outlet property="partyButtonOutlet" destination="KWK-VF-liY" id="WaG-nA-pOH"/>
+                <outlet property="sportsButtonOutlet" destination="dZl-CV-BI6" id="xNO-Eb-b6q"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EP-nU-M7O">
+                    <rect key="frame" x="282" y="543" width="37" height="30"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="makeGroupButtonPressed:" destination="-1" eventType="touchUpInside" id="qzv-1e-Q1O"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-VF-liY">
+                    <rect key="frame" x="450" y="82" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="hMB-bw-XQv"/>
+                        <constraint firstAttribute="width" constant="100" id="iLH-Bn-O1y"/>
+                    </constraints>
+                    <state key="normal" title="Party" image="party-g"/>
+                    <connections>
+                        <action selector="partyButtonPressed:" destination="-1" eventType="touchUpInside" id="LHe-9V-AoT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rx-Vc-XIu">
+                    <rect key="frame" x="450" y="219" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="PQA-kz-644"/>
+                        <constraint firstAttribute="height" constant="100" id="xdl-H4-kO5"/>
+                    </constraints>
+                    <state key="normal" title="Gaming" image="gaming-g"/>
+                    <connections>
+                        <action selector="gamingButtonPressed:" destination="-1" eventType="touchUpInside" id="1jT-Kb-F5E"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cff-00-Kom">
+                    <rect key="frame" x="50" y="82" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="5wj-xb-Tga"/>
+                        <constraint firstAttribute="width" constant="100" id="bmX-wA-CDY"/>
+                    </constraints>
+                    <state key="normal" title="Entertainment" image="entertainment-g"/>
+                    <connections>
+                        <action selector="entertainmentButtonPressed:" destination="-1" eventType="touchUpInside" id="cBS-I0-Cy6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9m-4W-JYH">
+                    <rect key="frame" x="450" y="359" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Z2x-pL-Hdi"/>
+                        <constraint firstAttribute="height" constant="100" id="iwr-e1-hKG"/>
+                    </constraints>
+                    <state key="normal" title="Music" image="music-g"/>
+                    <connections>
+                        <action selector="musicButtonPressed:" destination="-1" eventType="touchUpInside" id="uBS-SZ-CbD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZl-CV-BI6">
+                    <rect key="frame" x="50" y="219" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="Z5e-02-nal"/>
+                        <constraint firstAttribute="height" constant="100" id="qZo-4L-BMk"/>
+                    </constraints>
+                    <state key="normal" title="Sports" image="sports-g"/>
+                    <connections>
+                        <action selector="sportsButtonPressed:" destination="-1" eventType="touchUpInside" id="Aiu-nu-AuL"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTg-9f-kag">
+                    <rect key="frame" x="50" y="359" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="9F7-zD-0ib"/>
+                        <constraint firstAttribute="height" constant="100" id="vMe-td-hJ0"/>
+                    </constraints>
+                    <state key="normal" title="Food" image="food-g"/>
+                    <connections>
+                        <action selector="foodButtonPressed:" destination="-1" eventType="touchUpInside" id="lnL-QJ-GcX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="TTg-9f-kag" firstAttribute="top" secondItem="dZl-CV-BI6" secondAttribute="bottom" constant="40" id="6fk-oB-3Xu"/>
+                <constraint firstItem="TTg-9f-kag" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="HuJ-DL-wy7"/>
+                <constraint firstItem="KWK-VF-liY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="LJm-u3-Bz9"/>
+                <constraint firstItem="dZl-CV-BI6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="LO1-T4-yXM"/>
+                <constraint firstAttribute="trailing" secondItem="a9m-4W-JYH" secondAttribute="trailing" constant="50" id="LYl-xQ-iSF"/>
+                <constraint firstAttribute="trailing" secondItem="KWK-VF-liY" secondAttribute="trailing" constant="50" id="NA6-qt-Bn5"/>
+                <constraint firstItem="Cff-00-Kom" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="P5H-Xb-OWS"/>
+                <constraint firstItem="dZl-CV-BI6" firstAttribute="top" secondItem="Cff-00-Kom" secondAttribute="bottom" constant="37" id="Y4l-9x-CWQ"/>
+                <constraint firstItem="6rx-Vc-XIu" firstAttribute="top" secondItem="KWK-VF-liY" secondAttribute="bottom" constant="37" id="aap-Ja-3Q0"/>
+                <constraint firstAttribute="bottom" secondItem="6EP-nU-M7O" secondAttribute="bottom" constant="27" id="huQ-pj-VDQ"/>
+                <constraint firstItem="6EP-nU-M7O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="log-po-SHr"/>
+                <constraint firstItem="Cff-00-Kom" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="rJ3-QB-Pff"/>
+                <constraint firstAttribute="trailing" secondItem="6rx-Vc-XIu" secondAttribute="trailing" constant="50" id="sHN-LM-ExL"/>
+                <constraint firstItem="a9m-4W-JYH" firstAttribute="top" secondItem="6rx-Vc-XIu" secondAttribute="bottom" constant="40" id="ziJ-td-paz"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="173" y="430"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="entertainment-g" width="126" height="126"/>
+        <image name="food-g" width="126" height="126"/>
+        <image name="gaming-g" width="126" height="126"/>
+        <image name="music-g" width="126" height="126"/>
+        <image name="party-g" width="126" height="126"/>
+        <image name="sports-g" width="126" height="126"/>
+    </resources>
+</document>

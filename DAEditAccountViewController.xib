@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DAEditAccountViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfd-a2-xBo">
+                    <rect key="frame" x="61" y="250" width="79" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi9-Iq-BVg">
+                    <rect key="frame" x="76" y="523" width="48" height="30"/>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="logoutButtonPressed:" destination="-1" eventType="touchUpInside" id="5r3-2n-4FI"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face26" translatesAutoresizingMaskIntoConstraints="NO" id="vgW-PL-vLT">
+                    <rect key="frame" x="0.0" y="31" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Cm2-9J-VpT"/>
+                        <constraint firstAttribute="height" constant="200" id="UaZ-Rm-6Eb"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vgW-PL-vLT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Nu2-ED-Q8w"/>
+                <constraint firstItem="dfd-a2-xBo" firstAttribute="top" secondItem="vgW-PL-vLT" secondAttribute="bottom" constant="19" id="TTx-Vn-gJx"/>
+                <constraint firstItem="vgW-PL-vLT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="ZCZ-TS-eg3"/>
+                <constraint firstItem="dfd-a2-xBo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="61" id="auW-QK-kVd"/>
+                <constraint firstAttribute="bottom" secondItem="Hi9-Iq-BVg" secondAttribute="bottom" constant="47" id="fbt-IG-MxZ"/>
+                <constraint firstItem="Hi9-Iq-BVg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="76" id="oUC-hg-8Gw"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="face26" width="52" height="53"/>
+    </resources>
+</document>

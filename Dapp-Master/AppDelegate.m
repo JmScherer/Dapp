@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "DALoginViewController.h"
+#import "DAHomeViewController.h"
+#import "DAMapViewController.h"
+#import "DAFeedTableViewController.h"
+#import "DAUser.h"
+#import "DAGroupHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,9 +21,95 @@
 @implementation AppDelegate
 
 
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{   
+    
+    // Initialize Parse.
+    [Parse setApplicationId:kAPPLICATIONID clientKey:kCLIENTID];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    NSLog(@"App Start User: %@", [PFUser currentUser]);
+    
+    // Setting up the window
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Check whether or not user is IN a group to determine home screen
+    
+    DAUser *user = [DAUser sharedInstance];
+    
+    // Initializing our view controllers to stuff into our tab bar
+    
+    UINavigationController *nav1 = [[UINavigationController alloc] init];
+    UIImage *imageHome = [[UIImage imageNamed:@"profile.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav1.tabBarItem.title = @"Home";
+    nav1.tabBarItem.image = imageHome;
+    
+    
+    if(user.currentGroup == NO) {
+        
+        DAHomeViewController *homeVC = [[DAHomeViewController alloc] init];
+        nav1.viewControllers = [NSArray arrayWithObject:homeVC];
+        
+    } else {
+        
+        DAGroupHomeViewController *groupHomeVC = [[DAGroupHomeViewController alloc] init];
+        nav1.viewControllers = [NSArray arrayWithObject:groupHomeVC];
+
+    }
+    
+    DAMapViewController *mapVC = [[DAMapViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:mapVC];
+    UIImage *imageMap = [[UIImage imageNamed:@"map.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav2.tabBarItem.title = @"Map";
+    nav2.tabBarItem.image = imageMap;
+    
+    DAFeedTableViewController *feedVC = [[DAFeedTableViewController alloc] init];
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:feedVC];
+    UIImage *imageFeed = [[UIImage imageNamed:@"feed.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav3.tabBarItem.title = @"Feed";
+    nav3.tabBarItem.image = imageFeed;
+    
+    /* We also need a messaging view controller to complete the tabview */
+    
+    // Here are our tab controller items
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[nav1, nav2, nav3];
+    
+    [self.window setRootViewController:self.tabBarController];
+    
+    [self.window makeKeyAndVisible];
+        
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // FaceBook integration
+    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+    
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+    
+    //BOOL isLoggedIn = NO;
+    
+    if(![PFUser currentUser])
+        [self showLoginScreen:NO];
+    
     return YES;
+}
+
+-(void) showLoginScreen:(BOOL)animated {
+    
+    DALoginViewController *loginVC = [[DALoginViewController alloc] init];
+    
+    [self.window.rootViewController presentViewController:loginVC animated:animated completion:nil];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -36,12 +128,23 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 #pragma mark - Core Data stack
